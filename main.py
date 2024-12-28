@@ -1,10 +1,13 @@
 import pygame
+from platform import Platform
 
 # pygame setup
 pygame.init()
 screen = pygame.display.set_mode((1280, 720))
 clock = pygame.time.Clock()
 running = True
+
+platform = Platform((640, 650))
 
 while running:
     # poll for events
@@ -15,6 +18,8 @@ while running:
 
     # fill the screen with a color to wipe away anything from last frame
     screen.fill("purple")
+
+    platform.update(screen)
 
     # RENDER YOUR GAME HERE
 
