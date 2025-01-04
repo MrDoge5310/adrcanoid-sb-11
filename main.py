@@ -22,7 +22,7 @@ while running:
     screen.fill("purple")
 
     platform.update(screen)
-    ball.draw(screen)
+    ball.update(screen, platform)
 
     # RENDER YOUR GAME HERE
 
