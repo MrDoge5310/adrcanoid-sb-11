@@ -1,5 +1,6 @@
 import pygame
 from platform import Platform
+from ball import Ball
 
 # pygame setup
 pygame.init()
@@ -8,6 +9,7 @@ clock = pygame.time.Clock()
 running = True
 
 platform = Platform((640, 650))
+ball = Ball((640, 600))
 
 while running:
     # poll for events
@@ -20,6 +22,7 @@ while running:
     screen.fill("purple")
 
     platform.update(screen)
+    ball.draw(screen)
 
     # RENDER YOUR GAME HERE
 
