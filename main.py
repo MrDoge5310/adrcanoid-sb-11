@@ -2,12 +2,15 @@ import pygame
 from platform import Platform
 from ball import Ball
 from enemy import Enemy
+from tkinter import messagebox
 
 # pygame setup
 pygame.init()
 screen = pygame.display.set_mode((1280, 720))
 clock = pygame.time.Clock()
 running = True
+
+message = ""
 
 platform = Platform((640, 650))
 ball = Ball((640, 600))
@@ -37,6 +40,13 @@ while running:
             ball.reflect()
             break
 
+    if ball.rect.y > screen.get_height():
+        message = "You Loose!"
+        running = False
+    elif len(enemies) == 0:
+        message = "You Win"
+        running = False
+
     # RENDER YOUR GAME HERE
 
     # flip() the display to put your work on screen
@@ -44,4 +54,5 @@ while running:
 
     clock.tick(60)  # limits FPS to 60
 
+messagebox.showinfo('GameOver', message)
 pygame.quit()
