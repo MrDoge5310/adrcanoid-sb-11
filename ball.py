@@ -15,6 +15,10 @@ class Ball:
     def draw(self, screen):
         pygame.draw.circle(screen, self.color, self.rect.center, self.size / 2)
 
+    def reflect(self):
+        self.dx = random.choice(self.speeds)
+        self.dy *= -1
+
     def move(self, screen, platform):
         x, y = self.rect.center
         x += self.dx
