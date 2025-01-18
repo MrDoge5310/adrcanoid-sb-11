@@ -12,12 +12,16 @@ class Ball:
         self.dx = random.choice(self.speeds)
         self.dy = -2
 
+        self.sound = pygame.mixer.Sound("hit.mp3")
+        self.sound.set_volume(0.5)
+
     def draw(self, screen):
         pygame.draw.circle(screen, self.color, self.rect.center, self.size / 2)
 
     def reflect(self):
         self.dx = random.choice(self.speeds)
         self.dy *= -1
+        self.sound.play()
 
     def move(self, screen, platform):
         x, y = self.rect.center

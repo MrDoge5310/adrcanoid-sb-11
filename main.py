@@ -10,6 +10,11 @@ screen = pygame.display.set_mode((1280, 720))
 clock = pygame.time.Clock()
 running = True
 
+mixer = pygame.mixer_music
+mixer.load("music.mp3")
+mixer.set_volume(0.5)
+mixer.play(-1)
+
 message = ""
 
 platform = Platform((640, 650))
